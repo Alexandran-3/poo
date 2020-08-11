@@ -15,6 +15,7 @@ $livreManager->ajoutLivre($l2);
 $livreManager->ajoutLivre($l3);
 $livreManager->ajoutLivre($l4);
 
+$livreManager->chargementLivres();
 ob_start(); 
 ?>
 
