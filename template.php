@@ -13,10 +13,10 @@
     <nav>
         <ul>
             <li>
-                <a href="index.php">Accueil</a>
+                <a href="accueil">Accueil</a>
             </li>
             <li>
-                <a href="livres.php">Livres</a>
+                <a href="livres">Livres</a>
             </li>
         </ul>
     
