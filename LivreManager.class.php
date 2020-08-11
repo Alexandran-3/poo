@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model.class.php";
+require_once "Livre.class.php";
 
 class LivreManager extends Model{
     private $livres;
@@ -16,10 +17,17 @@ class LivreManager extends Model{
     public function chargementLivres() {
         $req = $this->getBdd()->prepare("SELECT * FROM livre ORDER BY id DESC");
         $req->execute();
-        $livres = $req->fetchAll(PDO::FETCH_ASSOC);
-        echo "<pre>";
-        print_r($livres);
-        echo "<pre>";
+        $meslivres = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        foreach ($meslivres as $livre) {
+        
+        
+            $l = new Livre($livre['id'], $livre['titre'], $livre['nbPages'], $livre['image'] );
+            //Genere les livres
+            $this->ajoutLivre($l);
+        }
+        
         
     }
 }

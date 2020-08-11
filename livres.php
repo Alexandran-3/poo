@@ -1,19 +1,9 @@
 <?php
 
-
-require_once 'Livre.class.php';
-$l1 = new Livre(1, "Central Park", 448, "park.jpg");
-$l2 = new Livre(2, "Miracle Morning", 297, "morning.jpg");
-$l3 = new Livre(3, "En route pour Symfony 5", 320, "symfony.jpg");
-$l4 = new Livre(4, "Le petit prince", 180, "prince.jpg");
-
-
+require_once "Livre.class.php";
 require_once "LivreManager.class.php";
-$livreManager = new LivreManager;
-$livreManager->ajoutLivre($l1);
-$livreManager->ajoutLivre($l2);
-$livreManager->ajoutLivre($l3);
-$livreManager->ajoutLivre($l4);
+
+$livreManager = new LivreManager();
 
 $livreManager->chargementLivres();
 ob_start(); 
