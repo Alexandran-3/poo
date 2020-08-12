@@ -1,4 +1,6 @@
 <?php
+session_start(); //POur demmarer les message de sessions
+
 define("URL", str_replace("index.php","",(isset($_SERVER['HTTPS']) ? "https" : "http").
 "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
@@ -38,5 +40,6 @@ try{
     }
 }
 catch(Exception $e){
-    echo $e->getMessage();
+    $msg =  $e->getMessage();
+    require "views/error.view.php";
 }

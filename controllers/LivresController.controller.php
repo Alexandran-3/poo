@@ -28,6 +28,12 @@ class LivresController{
         $repertoire = "public/images/";
         $nomImageAjoute = $this->ajoutImage($file,$repertoire);
         $this->livreManager->ajoutLivreBd($_POST['titre'],$_POST['nbPages'],$nomImageAjoute);
+
+        $_SESSION['alert'] = [
+            "type" => "success",// ou type "danger" pour la couleur
+            "msg" => "Ajout effectué"
+        ];
+
         header('Location: '. URL . "livres");
     }
 
@@ -35,6 +41,12 @@ class LivresController{
         $nomImage = $this->livreManager->getLivreById($id)->getImage();
         unlink("public/images/".$nomImage); //Supression du l'image dans le dossier
         $this->livreManager->suppressionLivreBD($id);
+
+        $_SESSION['alert'] = [
+            "type" => "success",// ou type "danger" pour la couleur
+            "msg" => "Le Livre a été supprimé"
+        ];
+
         header('Location: '. URL . "livres");
     }
 
@@ -55,6 +67,10 @@ class LivresController{
             $nomImageToAdd = $imageActuelle; //si je modifie pas je veux ajouter l'image actuel
         }
         $this->livreManager->modificationLivreBD($_POST['identifiant'],$_POST['titre'],$_POST['nbPages'],$nomImageToAdd); // envoie de lid du livre concerner etc
+        $_SESSION['alert'] = [
+            "type" => "success",// ou type "danger" pour la couleur
+            "msg" => "Modification effectuée"
+        ];
         header('Location: '. URL . "livres");
     }
 

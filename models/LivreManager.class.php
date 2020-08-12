@@ -25,12 +25,13 @@ class LivreManager extends Model{
         }
     }
 
-    public function getLivreById($id){
+    public function getLivreById($id){ // Parcours le tableau de livre et renvoie le livre s'il est trouvé
         for($i=0; $i < count($this->livres);$i++){
             if($this->livres[$i]->getId() === $id){
                 return $this->livres[$i];
             }
         }
+        throw new Exception("Le livre n'existe pas");
     }
 
     public function ajoutLivreBd($titre,$nbPages,$image){
