@@ -22,12 +22,14 @@ try{
                 } else if($url[1] === "a") {
                     $livreController->ajoutLivre();
                 } else if($url[1] === "m") {
-                    echo "modifier un livre";
+                    $livreController->modificationLivre($url[2]);
                 } else if($url[1] === "s") {
                     $livreController->suppressionLivre($url[2]);
-                } else if($url[1] === "av") {
+                } else if($url[1] === "mv") {
+                    $livreController->modificationLivreValidation($url[2]);
+                }  else if($url[1] === "av") {
                     $livreController->ajoutLivreValidation();
-                }else {
+                }else  {
                     throw new Exception("La page n'existe pas");
                 }
             break;

@@ -6,6 +6,6 @@ Ici la page d'accueil
 
 <?php
 $content = ob_get_clean();
-$titre = "Bibliothèque MGA";
+$titre = "Bibliothèque";
 require "template.php";
 ?>
