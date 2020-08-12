@@ -1,7 +1,7 @@
 <?php
 
-require_once "Model.class.php";
-require_once "Livre.class.php";
+require_once "models/Model.class.php";
+require_once "models/Livre.class.php";
 
 class LivreManager extends Model{
     private $livres;
