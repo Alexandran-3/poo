@@ -49,4 +49,18 @@ class LivreManager extends Model{
             $this->ajoutLivre($livre);
         }        
     }
+
+    public function suppressionLivreBD($id){
+        $req = "
+        Delete from livre where id = :idLivre
+        ";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idLivre",$id,PDO::PARAM_INT);
+        $resultat = $stmt->execute();
+        $stmt->closeCursor();
+        if($resultat > 0){
+            $livre = $this->getLivreById($id);
+            unset($livre);
+        }
+    }  
 }
