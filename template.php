@@ -13,10 +13,10 @@
     <nav>
         <ul>
             <li>
-                <a href="accueil">Accueil</a>
+                <a href="<?= URL ?>accueil">Accueil</a> <!-- Mettre la constant URL pour repartir de la racine-->
             </li>
             <li>
-                <a href="livres">Livres</a>
+                <a href="<?= URL ?>livres">Livres</a>
             </li>
         </ul>
     
