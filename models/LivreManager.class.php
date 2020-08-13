@@ -87,4 +87,7 @@ class LivreManager extends Model{
             $this->getLivreById($id)->setTitre($auteur);
         }
     }
+
+    
+
 }

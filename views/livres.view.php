@@ -1,5 +1,7 @@
 <?php 
 ob_start(); 
+require_once 'models/LivreManager.class.php';
+
 if(!empty($_SESSION['alert'])) :
     ?>
     <div class="alert alert-<?= $_SESSION['alert']['type'] ?>" role="alert">
@@ -9,6 +11,9 @@ if(!empty($_SESSION['alert'])) :
     unset($_SESSION['alert']); //Vider la variable de session avant une autre manip
     endif; 
 ?>
+
+
+
 
 <table class="table text-center">
     <tr class="table-dark">
