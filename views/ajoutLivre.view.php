@@ -11,6 +11,10 @@ ob_start();
         <input type="number" class="form-control" id="nbPages" name="nbPages">
     </div>
     <div class="form-group">
+        <label for="auteur">Nombre de pages : </label>
+        <input type="text" class="form-control" id="auteur" name="auteur">
+    </div>
+    <div class="form-group">
         <label for="image">Image : </label>
         <input type="file" class="form-control-file" id="image" name="image">
     </div>

@@ -4,14 +4,14 @@ class Livre{
     private $titre;
     private $nbPages;
     private $image;
-    private $categorie;
+    private $auteur;
 
-    public function __construct($id,$titre,$nbPages,$image,$categorie){
+    public function __construct($id,$titre,$nbPages,$image,$auteur){
         $this->id = $id;
         $this->titre = $titre;
         $this->nbPages = $nbPages;
         $this->image = $image;
-        $this->categorie = $categorie;
+        $this->auteur = $auteur;
     }
 
     public function getId(){return $this->id;}
@@ -26,6 +26,6 @@ class Livre{
     public function getImage(){return $this->image;}
     public function setImage($image){$this->image = $image;}
 
-    public function getCategorie(){return $this->categorie;}
-    public function setCategorie($categorie){$this->categorie = $categorie;}
+    public function getAuteur(){return $this->auteur;}
+    public function setAuteur($auteur){$this->auteur = $auteur;}
 }

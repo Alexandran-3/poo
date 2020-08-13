@@ -20,7 +20,7 @@ class LivreManager extends Model{
         $req->closeCursor();
 
         foreach($mesLivres as $livre){
-            $l = new Livre($livre['id'],$livre['titre'],$livre['nbPages'],$livre['image']);
+            $l = new Livre($livre['id'],$livre['titre'],$livre['nbPages'],$livre['image'], $auteur['auteur']);
             $this->ajoutLivre($l);
         }
     }
@@ -36,17 +36,18 @@ class LivreManager extends Model{
 
     public function ajoutLivreBd($titre,$nbPages,$image){
         $req = "
-        INSERT INTO livre (titre, nbPages, image)
-        values (:titre, :nbPages, :image)";
+        INSERT INTO livre (titre, nbPages, image, auteur)
+        values (:titre, :nbPages, :image, :auteur)";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":titre",$titre,PDO::PARAM_STR);
         $stmt->bindValue(":nbPages",$nbPages,PDO::PARAM_INT);
         $stmt->bindValue(":image",$image,PDO::PARAM_STR);
+        $stmt->bindValue(":auteur",$auteur,PDO::PARAM_STR);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
 
         if($resultat > 0){
-            $livre = new Livre($this->getBdd()->lastInsertId(),$titre,$nbPages,$image);
+            $livre = new Livre($this->getBdd()->lastInsertId(),$titre,$nbPages,$image,$auteur);
             $this->ajoutLivre($livre);
         }        
     }
@@ -68,13 +69,14 @@ class LivreManager extends Model{
     public function modificationLivreBD($id,$titre,$nbPages,$image){
         $req = "
         update livre
-        set titre = :titre, nbPages = :nbPages, image = :image
+        set titre = :titre, nbPages = :nbPages, image = :image, auteur = :auteur
         where id = :id";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":id",$id,PDO::PARAM_INT);
         $stmt->bindValue(":titre",$titre,PDO::PARAM_STR);
         $stmt->bindValue(":nbPages",$nbPages,PDO::PARAM_INT);
         $stmt->bindValue(":image",$image,PDO::PARAM_STR);
+        $stmt->bindValue(":auteur",$auteur,PDO::PARAM_STR);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
 
@@ -82,6 +84,7 @@ class LivreManager extends Model{
             $this->getLivreById($id)->setTitre($titre); //mise a jour titre livre
             $this->getLivreById($id)->setTitre($nbPages);
             $this->getLivreById($id)->setTitre($image);
+            $this->getLivreById($id)->setTitre($auteur);
         }
     }
 }
