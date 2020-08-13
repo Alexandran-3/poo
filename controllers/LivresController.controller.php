@@ -27,7 +27,7 @@ class LivresController{
         $file = $_FILES['image'];
         $repertoire = "public/images/";
         $nomImageAjoute = $this->ajoutImage($file,$repertoire);
-        $this->livreManager->ajoutLivreBd($_POST['titre'],$_POST['nbPages'],$nomImageAjoute);
+        $this->livreManager->ajoutLivreBd($_POST['titre'],$_POST['nbPages'],$nomImageAjoute,$_POST['auteur']);
 
         $_SESSION['alert'] = [
             "type" => "success",// ou type "danger" pour la couleur
@@ -66,7 +66,7 @@ class LivresController{
         } else {
             $nomImageToAdd = $imageActuelle; //si je modifie pas je veux ajouter l'image actuel
         }
-        $this->livreManager->modificationLivreBD($_POST['identifiant'],$_POST['titre'],$_POST['nbPages'],$nomImageToAdd); // envoie de lid du livre concerner etc
+        $this->livreManager->modificationLivreBD($_POST['identifiant'],$_POST['titre'],$_POST['nbPages'],$nomImageToAdd,$_POST['auteur']); // envoie de lid du livre concerner etc
         $_SESSION['alert'] = [
             "type" => "success",// ou type "danger" pour la couleur
             "msg" => "Modification effectuée"

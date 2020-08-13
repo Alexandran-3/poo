@@ -12,7 +12,7 @@ ob_start();
         <input type="number" class="form-control" id="nbPages" name="nbPages" value="<?= $livre->getNbPages() ?>">
     </div>
     <div class="form-group">
-        <label for="auteur">Nombre de pages : </label>
+        <label for="auteur">Auteur : </label>
         <input type="text" class="form-control" id="auteur" name="auteur" value="<?= $livre->getAuteur() ?>">
     </div>
     <h3>Images : </h3>

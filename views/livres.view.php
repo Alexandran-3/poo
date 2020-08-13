@@ -15,6 +15,7 @@ if(!empty($_SESSION['alert'])) :
         <th>Image</th>
         <th>Titre</th>
         <th>Nombre de pages</th>
+        <th>Auteur</th>
         <th colspan="2">Actions</th>
     </tr>
     <?php 

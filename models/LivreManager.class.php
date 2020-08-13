@@ -20,7 +20,7 @@ class LivreManager extends Model{
         $req->closeCursor();
 
         foreach($mesLivres as $livre){
-            $l = new Livre($livre['id'],$livre['titre'],$livre['nbPages'],$livre['image'], $auteur['auteur']);
+            $l = new Livre($livre['id'],$livre['titre'],$livre['nbPages'],$livre['image'],$livre['auteur']);
             $this->ajoutLivre($l);
         }
     }
@@ -34,7 +34,7 @@ class LivreManager extends Model{
         throw new Exception("Le livre n'existe pas");
     }
 
-    public function ajoutLivreBd($titre,$nbPages,$image){
+    public function ajoutLivreBd($titre,$nbPages,$image,$auteur){
         $req = "
         INSERT INTO livre (titre, nbPages, image, auteur)
         values (:titre, :nbPages, :image, :auteur)";
@@ -66,7 +66,7 @@ class LivreManager extends Model{
         }
     }  
 
-    public function modificationLivreBD($id,$titre,$nbPages,$image){
+    public function modificationLivreBD($id,$titre,$nbPages,$image, $auteur){
         $req = "
         update livre
         set titre = :titre, nbPages = :nbPages, image = :image, auteur = :auteur

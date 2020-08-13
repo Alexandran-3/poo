@@ -11,7 +11,7 @@ ob_start();
         <input type="number" class="form-control" id="nbPages" name="nbPages">
     </div>
     <div class="form-group">
-        <label for="auteur">Nombre de pages : </label>
+        <label for="auteur">Auteur : </label>
         <input type="text" class="form-control" id="auteur" name="auteur">
     </div>
     <div class="form-group">
